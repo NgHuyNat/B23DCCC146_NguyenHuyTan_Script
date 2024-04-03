@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function layHam(a){
+            console.log("do dai",a.length);
+            console.log('gop phan tu',a.join(''));
+            console.log('dao nguoc',a.reverse());
+            console.log('sap xep',a.sort());
+            console.log('lay phan tu dau',a.shift());
+            console.log('lay phan tu cuoi',a.pop());
+            console.log('them phan tu dau',a.unshift(0));
+            console.log('them phan tu cuoi',a.push(11));
+            console.log('xoa phan tu tai vi tri',a.splice(2,1));
+        }
+        var array = [1,2,3,4,5,6,7,8,9,10];
+        var array2 = [11,12,13,14,15,16];
+        console.log('ghep hai mang',array.concat(array2));
+        layHam(array);
+    </script>
+</body>
+</html>
