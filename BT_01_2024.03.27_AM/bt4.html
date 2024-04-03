@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n = parseInt(prompt("Nhap so n: "));
+        var tong = 0;
+        for (let i = 1; i <= n; i++) {
+            tong+=i;
+            if (tong >=100){
+                break;
+            }
+        }
+        document.write("Tong "+n+" so tu nhien dau tien lon hon hoac bang 100 la: "+tong);
+        
+    </script>
+</body>
+</html>
