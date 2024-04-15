@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array = [];
+        for (var i = 0; i < 10; i++) {
+            array.push(Math.floor(Math.random() * 100));
+        }
+        function soNguyenLon(a) {
+            var l = a[0];
+            for (var i = 1; i < a.length; i++) {
+                if (l < a[i]) {
+                    l = a[i];
+                }
+            }
+            return l;
+        }
+
+        function soChinhPhuong(a) {
+            var mang = [];
+            for (var i = 0; i < a.length; i++) {
+                if (Math.sqrt(a[i]) % 1 === 0) {
+                    mang.push(a[i]);
+                }
+            }
+            return mang;
+        }
+
+        function soLonHonAvg(a) {
+            var sum = 0;
+            for (var i = 0; i < a.length; i++) {
+                sum += a[i];
+            }
+            var trungBinh = sum / a.length;
+            var mang = [];
+            for (var i = 0; i < a.length; i++) {
+                if (a[i] > trungBinh) {
+                    mang.push(a[i]);
+                }
+            }
+            return mang;
+        }
+        
+        function trungBinhCong(a) {
+            var sum = 0;
+            for (var i = 0; i < a.length; i++) {
+                sum += a[i];
+            }
+            return sum / a.length;
+        }
+        document.write('Day so tu nhien ngau nhien la: '+array);
+        console.log('Số nguyên lớn nhất là: '+soNguyenLon(array));
+        console.log('Số chính phương là: '+soChinhPhuong(array));
+        console.log('Trung bình cộng là: '+trungBinhCong(array));
+        console.log('Số lớn hơn trung bình cộng là: '+soLonHonAvg(array));
+    </script>
+</body>
+</html>
