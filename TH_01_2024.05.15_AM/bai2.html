@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Item</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h3>LIST ITEM</h3>
+    <ul id="itemList"></ul>
+    <input type="text" id="itemInput">
+    <button id="addItemBtn">Add</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#addItemBtn').click(function() {
+                var newItem = $('#itemInput').val();
+                if (newItem !== '') {
+                    $('#itemList').append('<li>' + newItem + '</li>');
+                    $('#itemInput').val('');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
