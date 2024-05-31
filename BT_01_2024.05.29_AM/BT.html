@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <h1>Danh sách người dùng</h1>
+    <table id="userstable">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+            </tr>
+    </table>
+    <button id="btnLoad">Load data</button>
+    <h3>Thêm mới người dùng</h3>
+    <table id="user">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="name"></td>
+            <td>Gmail</th>
+            <td><input type="text" id="email"></td>
+            <td>Phone</td>
+            <td><input type="text" id="phone"></td>
+            <td>Password</td>
+            <td><input type="text" id="password"></td>
+        </tr>
+        <button id="Create-user">ADD</button>
+    </table>
+    <script>
+        $(document).ready(function(){
+            $('#btnLoad').click(function(){
+                $.ajax({
+                    url:"http://api.uduer.com/users",
+                    type:"GET",
+                    success:function(result){
+                        var data = result.data.users;
+                        console.log(data);
+                        var tbody = $('tbody');
+                        data.forEach(function(users){
+                            tbody.append('<tr><td>'+users.id+'</td><td>'+users.name+'</td><td>'+users.email+'</td><td><button class="btnDelete" data-id="'+users.id+'">Delete</button></td></tr>')
+                        })
+                    },
+                    error:function(error){
+                        console.log(error);
+                    }
+                })
+            })
+        })
+        $(document).ready(function(){
+            $("#Create-user").click(function(){
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var phone = $("#phone").val();
+                var password = $("#password").val();
+                $.ajax({
+                    url:"http://api.uduer.com/users",
+                    type:"POST",
+                    data:{
+                        name:name,
+                        email:email,
+                        phone:phone,
+                        password:password
+                    },
+                    success:function(result){
+                        alert("Thêm mới thành công");
+                    },
+                    error:function(error){
+                        console.log(error);
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>
