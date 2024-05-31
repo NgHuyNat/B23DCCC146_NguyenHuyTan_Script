@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thêm và Thay đổi màu văn bản</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <input type="text" id="input-field">
+    <button id="add-text">Thêm nhiệm vụ</button>
+    <p id="text-field"></p>
+
+    <script>
+    $(document).ready(function(){
+        $('#add-text').click(function(){
+            $('#text-field').append('<p></p>').css('color', 'red');
+        });
+    });
+
+    </script>
+</body>
+</html>
